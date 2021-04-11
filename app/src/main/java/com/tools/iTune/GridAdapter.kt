@@ -9,7 +9,9 @@ import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.BaseAdapter
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.cardview.widget.CardView
 import com.facebook.shimmer.ShimmerFrameLayout
 import java.io.ByteArrayOutputStream
@@ -20,7 +22,7 @@ import java.net.URL
 class GridAdapter(
     private val context: Context,
     private val buttons: List<Song>,
- ) : BaseAdapter(){
+) : BaseAdapter(){
     private val iTuneDao = ITuneRoomDatabase.getInstance(context)?.iTuneDao()!!
     override fun getCount(): Int {
         return buttons.size
@@ -37,10 +39,10 @@ class GridAdapter(
     override fun getView(index: Int, view: View?, viewGroup: ViewGroup?): View {
         if(buttons[index].layout==null){
           val layout = LayoutInflater.from(context).inflate(
-                R.layout.button_ly,
-                viewGroup,
-                false
-            ) as CardView
+              R.layout.button_ly,
+              viewGroup,
+              false
+          ) as CardView
 
             val handler=Handler(Looper.getMainLooper())
             val songIcon=  layout.findViewById<ImageView>(R.id.song_icon)
@@ -82,15 +84,18 @@ class GridAdapter(
             return  layout
             }
         else  {
-
             val shimmerView = buttons[index].layout!!.findViewById<ShimmerFrameLayout>(R.id.shimmer_view)
             if(buttons[index].bitmap!=null )
                 shimmerView.stopShimmerAnimation()
-        else if(!shimmerView.isAnimationStarted)
+            else
                 shimmerView.startShimmerAnimation()
-
+            buttons[index].layout!!.setBackgroundResource(R.drawable.song_tile_back)
+            buttons[index].layout!!.cardElevation=pxFromDp(context,6f)
         }
         //return view
         return buttons[index].layout!!
+    }
+    fun pxFromDp(context: Context, dp: Float): Float {
+        return dp * context.resources.displayMetrics.density
     }
 }

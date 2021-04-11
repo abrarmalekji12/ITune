@@ -27,7 +27,7 @@ class ITuneViewModel(application: Application) : AndroidViewModel(application)  
         repository.insert(song)
     }
 
-    fun getAllSongs(keyword:String) :SearchResult{
+    fun getAllSongs(keyword:String) :SearchResult?{
         val call: Call<ITuneSongs?>? = jsonPlaceHolderApi.getSongs(keyword)
         var response:Response<ITuneSongs?>?=null
         try {
@@ -36,6 +36,8 @@ class ITuneViewModel(application: Application) : AndroidViewModel(application)  
         catch (e:Exception){
      // Network Problem
         }
+        if(keyword!=MainActivity.lastSearched)
+            return null
             if(response!=null&& response.isSuccessful) {
               val post: ITuneSongs = response.body()!!
                val  list= mutableListOf<Song>()

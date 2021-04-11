@@ -20,7 +20,7 @@ import java.net.UnknownHostException
 
 
 class MainActivity : AppCompatActivity() {
-    private var lastSearched: String? = null
+
 
     lateinit var connectionReceiver: BroadcastReceiver
     lateinit var resultView: TextView
@@ -107,7 +107,7 @@ class MainActivity : AppCompatActivity() {
         searchingView.text = spannableStringBuilder
         val handler = Handler(mainLooper)
         Thread {
-            val searchResult = iTuneViewModel.getAllSongs(search)
+            val searchResult = iTuneViewModel.getAllSongs(search)?:return@Thread
             if(lastSearched!=search)
                 return@Thread
             val t = searchResult.songs
@@ -159,5 +159,6 @@ class MainActivity : AppCompatActivity() {
     companion object {
         var isOffline = false
         const val ACTION_CONNECTIVITY_CHANGE = "android.net.conn.CONNECTIVITY_CHANGE"
+        var lastSearched: String? = null
     }
 }
