@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/root_view"
+    android:background="#fff"
+    android:layout_height="match_parent"
+    android:paddingTop="20dp"
+    android:paddingStart="6dp"
+    android:paddingEnd="6dp"
+    tools:context=".MainActivity">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/search"
+        android:textColor="#000"
+        android:fontFamily="arial"
+        android:id="@+id/tv1"
+        android:textStyle="bold"
+        android:padding="10dp"
+        android:textSize="25sp"
+        />
+<RelativeLayout
+    android:layout_below="@+id/tv1"
+    android:id="@+id/search_lay"
+    android:padding="5dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <EditText
+        android:inputType="text"
+        android:id="@+id/search"
+        android:textSize="18sp"
+        android:gravity="center_vertical"
+        android:padding="15dp"
+        android:drawablePadding="15dp"
+        android:background="@drawable/key_draw"
+        android:textColorHint="#989898"
+        android:layout_centerVertical="true"
+        android:drawableStart="@drawable/ic_baseline_search_24"
+        android:hint="@string/search_hint"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="#2f2f2f"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:importantForAutofill="no" />
+<!--<ImageButton-->
+<!--    android:id="@+id/search_done"-->
+<!--    android:layout_width="50dp"-->
+<!--    android:src="@drawable/ic_baseline_search_24"-->
+<!--    android:tint="#000"-->
+<!--    android:layout_alignParentEnd="true"-->
+<!--    android:layout_centerVertical="true"-->
+<!--    android:layout_margin="10dp"-->
+<!--    android:background="@android:color/transparent"-->
+<!--    android:layout_height="50dp"/>-->
+</RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/search_lay"
+        android:background="#83FFFFFF"
+        android:elevation="50dp"
+        android:visibility="invisible"
+        android:id="@+id/load_back"
+        />
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/searching_view"
+        android:elevation="50dp"
+        android:layout_below="@+id/search_lay"
+        android:textSize="17sp"
+        android:layout_margin="10dp"
+        android:padding="5dp"
+        android:textColor="#494949"
+        tools:text="Searching Best results for 'Amazing Songs'"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+<ProgressBar
+    android:id="@+id/loading"
+    android:indeterminate="true"
+    android:visibility="invisible"
+    android:elevation="100dp"
+    android:indeterminateTint="#2f2f2f"
+    android:layout_centerInParent="true"
+    android:layout_width="40dp"
+    android:layout_height="40dp"/>
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/result_view"
+        android:elevation="50dp"
+        android:layout_below="@id/searching_view"
+        android:textSize="16sp"
+        android:layout_margin="10dp"
+        android:padding="5dp"
+        android:textColor="#494949"
+        tools:text="Results for 'Song' "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <GridView
+        android:id="@+id/songs"
+        android:numColumns="2"
+        android:gravity="center"
+        android:elevation="10dp"
+        android:layout_below="@+id/result_view"
+        android:horizontalSpacing="10dp"
+        android:verticalSpacing="10dp"
+        android:hapticFeedbackEnabled="true"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</RelativeLayout>

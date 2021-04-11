@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ITune</string>
+    <string name="song_image">Album image</string>
+    <string name="search_hint">Artists, songs ...</string>
+    <string name="search">Search</string>
+    <string name="offline_no_result">You are offline, No results.</string>
+</resources>
