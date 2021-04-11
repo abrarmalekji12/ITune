@@ -1,4 +1,4 @@
-package com.mytools.itune
+package com.tools.iTune
 
 import android.app.Application
 import android.graphics.BitmapFactory

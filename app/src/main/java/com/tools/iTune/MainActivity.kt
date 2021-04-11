@@ -1,4 +1,4 @@
-package com.mytools.itune
+package com.tools.iTune
 
 import android.content.BroadcastReceiver
 import android.content.Context

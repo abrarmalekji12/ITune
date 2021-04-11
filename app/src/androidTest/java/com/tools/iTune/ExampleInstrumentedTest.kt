@@ -1,4 +1,4 @@
-package com.mytools.itune
+package com.tools.iTune
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

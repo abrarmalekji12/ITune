@@ -1,4 +1,4 @@
-package com.mytools.itune
+package com.tools.iTune
 
 data class ITuneSongs(
     val resultCount: Int,

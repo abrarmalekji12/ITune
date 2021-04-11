@@ -1,10 +1,11 @@
-package com.mytools.itune
+package com.tools.iTune
 
 
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -39,7 +40,7 @@ class GridAdapter(
                 viewGroup,
                 false
             ) as CardView
-            val handler=Handler()
+            val handler=Handler(Looper.getMainLooper())
             layout.findViewById<TextView>(R.id.song_name).text=buttons[index].name
             layout.findViewById<TextView>(R.id.song_price).text="${buttons[index].price}$"
             layout.findViewById<TextView>(R.id.song_artist).text="by ${buttons[index].artistName}"
