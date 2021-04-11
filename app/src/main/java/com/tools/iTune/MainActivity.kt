@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         searchBox.setOnEditorActionListener { _, i, _ ->
             if (i == EditorInfo.IME_ACTION_DONE) {
                 val searching = searchBox.text.toString()
-                if (searching.isEmpty() || (!isOffline && searching == lastSearched))
+                if (searching.trim().isEmpty() || (!isOffline && searching == lastSearched))
                     return@setOnEditorActionListener false
                 lastSearched = searching
                 searchFor(searching)
@@ -108,6 +108,8 @@ class MainActivity : AppCompatActivity() {
         val handler = Handler(mainLooper)
         Thread {
             val searchResult = iTuneViewModel.getAllSongs(search)
+            if(lastSearched!=search)
+                return@Thread
             val t = searchResult.songs
             isOffline = !searchResult.online
             if (isOffline) {

@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/root_view"
     android:background="#fff"
     android:layout_height="match_parent"
@@ -83,8 +84,8 @@
     android:elevation="100dp"
     android:indeterminateTint="#2f2f2f"
     android:layout_centerInParent="true"
-    android:layout_width="40dp"
-    android:layout_height="40dp"/>
+    android:layout_width="45dp"
+    android:layout_height="45dp"/>
     <TextView
         android:visibility="gone"
         android:id="@+id/result_view"
@@ -98,6 +99,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         />
+
     <GridView
         android:id="@+id/songs"
         android:numColumns="2"

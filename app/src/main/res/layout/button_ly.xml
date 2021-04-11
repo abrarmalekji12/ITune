@@ -12,16 +12,22 @@
     android:layout_height="match_parent"
     android:background="#fff"
     android:padding="5dp">
+<com.facebook.shimmer.ShimmerFrameLayout
+    android:layout_width="match_parent"
+    android:layout_above="@id/song_name"
+    android:id="@+id/shimmer_view"
+    android:foregroundTint="#494949"
+    android:layout_height="100dp">
     <ImageView
-        android:id="@+id/song_icon"
         android:padding="5dp"
+        android:id="@+id/song_icon"
         android:src="@drawable/ic_baseline_music_note_24"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginBottom="10dp"
-        android:layout_above="@id/song_name"
         android:adjustViewBounds="true"
         android:contentDescription="@string/song_image" />
+</com.facebook.shimmer.ShimmerFrameLayout>
     <TextView
         android:layout_above="@id/song_artist"
         android:layout_marginStart="5dp"
